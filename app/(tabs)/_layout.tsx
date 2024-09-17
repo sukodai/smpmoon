@@ -24,6 +24,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="moji"
+        options={{
+          title: '文字',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'text' : 'text-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="home"
         options={{
           title: 'Home',

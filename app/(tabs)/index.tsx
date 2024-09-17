@@ -1,28 +1,37 @@
+import { Link, Stack, useNavigation } from 'expo-router';
 import { Image, StyleSheet, Platform, View, Text, SafeAreaView } from 'react-native';
+import { useEffect } from 'react';
 
 export default function IndexScreen() {
+  const navigation = useNavigation();
+  useEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      title: 'My home',
+      headerTintColor: '#fff',
+      headerStyle: { backgroundColor: '#ef6c00' },
+      headerTitleAlign: 'left',
+      headerTitleStyle: {
+        fontWeight: '800',
+        fontSize: '24',
+      },
+    });
+  }, [navigation]);
   return (
-    <SafeAreaView>
+    <View style={styles.container}>
       <Text>Hello, World!</Text>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'center',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  image: {
+    width: 50,
+    height: 50,
   },
 });
